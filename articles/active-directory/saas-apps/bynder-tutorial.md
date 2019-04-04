@@ -35,7 +35,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To configure Azure AD integration with Bynder, you need the following items:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* Bynder single sign-on enabled subscription
+* Bynder subscription including single sign on
 
 ## Scenario description
 
@@ -77,8 +77,9 @@ To configure and test Azure AD single sign-on with Bynder, you need to complete 
 2. **[Configure Bynder Single Sign-On](#configure-bynder-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Bynder test user](#create-bynder-test-user)** - to have a counterpart of Britta Simon in Bynder that is linked to the Azure AD representation of user.
+5. **[Create Bynder test user](#create-bynder-test-user)** - to have a counterpart of Britta Simon in Bynder that is linked to the Azure AD representation of user. If a bynder user is not existing and SSO authorisation is successful, a new user will be created in Bynder automatically.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+7. **(optional)[Configure a role claim for Bynder]** - to be able to assign users to different permission levels in Bynder, you need to create a role claim and issue that in the SAML token.
 
 ### Configure Azure AD single sign-on
 
@@ -199,6 +200,16 @@ In this section, a user called Britta Simon is created in Bynder. Bynder support
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Bynder tile in the Access Panel, you should be automatically signed in to the Bynder for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+### Configure a role claim for Bynder
+In this section, you add information about roles you can assign your users to in Azure and sent these assigned roles in the claim to Bynder.
+
+Configuring Azure to send assigned user roles in the claim to Bynder is described in this article: https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-enterprise-app-role-management
+For Bynder to be able to map the attribute values to the permission profiles and/or user groups, it is a requirement that the attributename that contains this information is set to 'group'. 
+
+The values that are in this attribute should be communicated to your contact at bynder, so they can map these to the corresponding permission profile/user group. 
+
+Once the configuration on both sides is completed, it is recommended to test the mapping, by assigning a test user to the roles in azure and see if they are assigned to the corresponding permission profile/user group in Bynder when loggin in with Single Sign On. 
 
 ## Additional Resources
 
